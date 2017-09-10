@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <typeAliases>
+    		<typeAlias type="com.tech.rpc.model.User" alias="user"/>
+    		<typeAlias type="com.tech.rpc.common.Page" alias="page"/>
+   </typeAliases>   	 
+	<!-- 注册拦截器-->
+	<plugins>
+		<plugin interceptor="com.tech.rpc.common.PageInterceptor">
+			<property name="dataBaseType" value="mysql" />
+		</plugin>
+	</plugins>
+	<!-- 注册 ibaste 配置文件 -->
+	<mappers>
+		 <mapper resource="com/rpc/app/module/User.xml"></mapper>
+	</mappers>
+	
+</configuration>
